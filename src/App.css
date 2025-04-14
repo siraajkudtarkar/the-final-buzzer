@@ -1,20 +1,22 @@
+/* Primary (Basketball)	Burnt Orange #D35400	Evokes a basketball's leather, warm and energetic.
+Primary Neutral	Composition Black	#1E1E1E	Matches the notebook pattern, sleek and academic.
+Background Base	Light Maple Wood	#F2D7B6	Mimics the gym floor, soft contrast.
+Accent	Shot Clock Red	#FF3B30	High urgency, ideal for countdowns and buttons.
+Highlight/Font	Bright White	#FFFFFF	For clean typography and contrast.
+Secondary Accent	Medium Gray	#8E8E8E	Useful for borders or secondary UI elements.*/
 .App {
   text-align: center;
+  background-color: #FFFFFF;
+  background-image: linear-gradient(#F2D7B6, rgba(255, 255, 255, 0.08)), url('../public/hardwood.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  height: 30vmin;
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -28,11 +30,43 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#time-left-display {
+  font-size: 2vw;
+  font-weight: bold;
+  color: #D35400;
+}
+
+#enter-exam-time, #add-study-task {
+  font-size: 1vw;
+  font-weight: bold;
+  background-color: #D35400;
+  color: #FFFFFF;
+}
+
+#reset {
+  font-size: 1vw;
+  font-weight: bold;
+  background-color: #FF3B30;
+  color: #FFFFFF;
+}
+
+#start-pause {
+  margin-right: 1vw;
+  font-size: 1vw;
+  font-weight: bold;
+  background-color: #1E1E1E;
+  color: #FFFFFF;
+}
+
+.DemoContainer, .TimeField, .DatePicker {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  align-self: center;
+}
+
+#root > div > header > div > div.MuiStack-root.css-10o2lyd-MuiStack-root > div > div {
+  justify-content: center;
+  align-items: center;
 }
