@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/the-final-buzzer/static/css/main.1787197f.css",
-    "main.js": "/the-final-buzzer/static/js/main.90292ae0.js",
+    "main.css": "/the-final-buzzer/static/css/main.249de692.css",
+    "main.js": "/the-final-buzzer/static/js/main.8549d9a9.js",
     "static/js/453.c8535143.chunk.js": "/the-final-buzzer/static/js/453.c8535143.chunk.js",
     "static/media/logo.png": "/the-final-buzzer/static/media/logo.b06c34702fc294a9b7ab.png",
     "static/media/hardwood.jpg": "/the-final-buzzer/static/media/hardwood.6c78d504d91f7a687820.jpg",
     "index.html": "/the-final-buzzer/index.html",
-    "main.1787197f.css.map": "/the-final-buzzer/static/css/main.1787197f.css.map",
-    "main.90292ae0.js.map": "/the-final-buzzer/static/js/main.90292ae0.js.map",
+    "main.249de692.css.map": "/the-final-buzzer/static/css/main.249de692.css.map",
+    "main.8549d9a9.js.map": "/the-final-buzzer/static/js/main.8549d9a9.js.map",
     "453.c8535143.chunk.js.map": "/the-final-buzzer/static/js/453.c8535143.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1787197f.css",
-    "static/js/main.90292ae0.js"
+    "static/css/main.249de692.css",
+    "static/js/main.8549d9a9.js"
   ]
 }
