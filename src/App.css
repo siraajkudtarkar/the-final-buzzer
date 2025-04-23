@@ -7,7 +7,7 @@ Secondary Accent	Medium Gray	#8E8E8E	Useful for borders or secondary UI elements
 .App {
   text-align: center;
   background-color: #FFFFFF;
-  background-image: linear-gradient(#F2D7B6, rgba(255, 255, 255, 0.08)), url('../public/hardwood.jpg');
+  background-image: linear-gradient(#F2D7B6, rgba(255, 255, 255, 0.8)), url('../public/hardwood.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -22,7 +22,6 @@ Secondary Accent	Medium Gray	#8E8E8E	Useful for borders or secondary UI elements
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
@@ -30,29 +29,38 @@ Secondary Accent	Medium Gray	#8E8E8E	Useful for borders or secondary UI elements
   color: #61dafb;
 }
 
+
 #time-left-display {
-  font-size: 2vw;
   font-weight: bold;
-  color: #D35400;
+  color: #943B00;
+}
+
+#total-time {
+  font-weight: bold;
+  color: #943B00;
 }
 
 #enter-exam-time, #add-study-task {
-  font-size: 1vw;
   font-weight: bold;
-  background-color: #D35400;
+  background-color: #943B00;
   color: #FFFFFF;
 }
 
+#enter-exam-time {
+  margin-bottom: 1vw;
+}
+
+#enter-exam-time:hover, #add-study-task:hover {
+  background-color: #1E1E1E;
+}
+
 #reset {
-  font-size: 1vw;
   font-weight: bold;
-  background-color: #FF3B30;
+  background-color: #AD0900;
   color: #FFFFFF;
 }
 
 #start-pause {
-  margin-right: 1vw;
-  font-size: 1vw;
   font-weight: bold;
   background-color: #1E1E1E;
   color: #FFFFFF;

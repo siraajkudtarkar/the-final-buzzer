@@ -39,32 +39,52 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Project Report
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Final Version Overview
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The final version of The Final Buzzer is a React-based web application designed to help students efficiently manage their exam preparation. The application provides a real-time countdown to the user’s upcoming exam and a dashboard to track planned versus actual study time for various tasks. With a clean and intuitive interface, The Final Buzzer offers students a structured and visual approach to organizing their study efforts leading up to an exam.
 
-### Code Splitting
+### Achievements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Successfully implemented:
 
-### Analyzing the Bundle Size
+- Exam Countdown Timer: A large visual clock that dynamically counts down to the exam date in days, hours, and minutes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Task Entry System: Allows users to add, edit, and delete study tasks with estimated preparation time.
 
-### Making a Progressive Web App
+- Time Tracking: Each task includes a Record and Stop button to track and log actual time spent studying.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Dashboard Display: A comprehensive dashboard that shows the countdown, task list, and cumulative study progress.
 
-### Advanced Configuration
+- Local Storage Persistence: User data is saved to local storage, maintaining study history across sessions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Challenges and Limitations
 
-### Deployment
+I faced challenges with:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Managing Multiple Timers: Implementing independent timers for each task required the use of useEffect hooks in ways that aren't considered best practice. However, for maintaining stateful, real-time tracking across components, this approach was necessary within the project’s scope.
 
-### `npm run build` fails to minify
+- Working with dayjs: Although lightweight and easy to integrate, dayjs lacked robust documentation for more advanced use cases, which introduced friction when handling time formatting and dynamic countdown logic.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Exploring Timer Libraries: Due to time constraints, I wasn’t able to experiment with external timer libraries like react-timer-hook, which may have provided cleaner or more scalable implementations for managing timers.
+
+### Scaling the Project
+
+To scale the project, I recommend:
+
+- Enhanced Timer Infrastructure: Replacing custom timer logic with a dedicated library like react-timer-hook to reduce complexity and improve maintainability.
+
+- Improved Accessibility: Improved color contrast ratios (according to WCAG standards), keyboard navigation, and clearer focus indicators to support users with assistive technologies.
+
+- Mobile Optimization: Further refining responsive layouts and touch-friendly interactions for a seamless mobile-first experience.
+
+- Analytics Dashboard: Introducing charts to visualize study trends over time and identify gaps between planned and actual time.
+
+### Key Files and Directories
+
+- **`src/components/CountdownTimer.js`**: Handles the countdown timer functionality and UI using dayjs for initializing and updating exam-related time data.
+- **`src/components/TaskManagement.js`**: Manages the task entry system, including multiple timers for tasks, goal times, and cumulative study tracking.
+- **`src/App.js/`**: Lays out the main dashboard, integrating the CountdownTimer and TaskManagement components.
+
+These files and directories represent the foundation of The Final Buzzer and reflect the project’s emphasis on real-time interactivity, usability, and inclusive design.

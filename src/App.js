@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="The Final Buzzer logo: a basketball inside a hoop with a composition notebook as the background." />
         <CountdownTimer initialSeconds={0} />
         <TaskManagement />
       </header>

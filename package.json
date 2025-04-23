@@ -1,5 +1,6 @@
 {
   "name": "the-final-buzzer",
+  "homepage": "https://siraajkudtarkar.github.io/the-final-buzzer",
   "version": "0.1.0",
   "dependencies": {
     "@base-ui-components/react": "^1.0.0-alpha.7",

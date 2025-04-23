@@ -9,8 +9,21 @@ import { TimeField } from '@mui/x-date-pickers/TimeField';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 // import { NumberField } from '@base-ui-components/react/number-field';
 
+/**
+ * CountdownTimer component displays a countdown timer based on a user-selected date and time.
+ * It allows users to set an exam date and time, and shows the remaining time until the exam.
+ *
+ * @param {Object} props - Component props.
+ * @param {number} props.initialSeconds - Initial seconds for the countdown timer.
+ * @returns {JSX.Element} The CountdownTimer component.
+ */
 export default function CountdownTimer({ initialSeconds }) {
     const [seconds, setSeconds] = useState(initialSeconds);
+
+    /**
+     * Updates the countdown timer every second if there are seconds remaining.
+     * Clears the interval when the component unmounts or when seconds reach 0.
+     */
     useEffect(() => {
         if (seconds > 0) {
             const timer = setInterval(() => {
@@ -22,8 +35,14 @@ export default function CountdownTimer({ initialSeconds }) {
         // If seconds reach 0, clear the interval and make a pop out effect
     }, [seconds]);
 
-    const [examDateTime, setExamDateTime] = useState(dayjs()); // State to store the exam date and time
+    const savedExamDateTime = localStorage.getItem('examDateTime');
+    const [examDateTime, setExamDateTime] = useState(savedExamDateTime ? dayjs(savedExamDateTime) : dayjs()); // Initialize from localStorage if available
+    const [isTimeLeftVisible, setIsTimeLeftVisible] = useState(!!savedExamDateTime); // Set to true if data exists in localStorage
 
+    /**
+     * Updates the remaining time based on the difference between the current time and the exam date/time.
+     * Runs every second to keep the countdown accurate.
+     */
     useEffect(() => {
         const updateTimer = () => {
             const now = dayjs();
@@ -38,22 +57,26 @@ export default function CountdownTimer({ initialSeconds }) {
         return () => clearInterval(timer); // Cleanup on unmount
     }, [examDateTime]);
 
-    const [isTimeLeftVisible, setIsTimeLeftVisible] = useState(false); // State to control visibility
-
     return (
         <div>
             {isTimeLeftVisible && (
-                <p id='time-left-display' style={{ display: isTimeLeftVisible ? 'block' : 'none' }}>
+                <h1 id='time-left-display' style={{ display: isTimeLeftVisible ? 'block' : 'none' }}>
                     {seconds > 0
-                        ? `${Math.floor(seconds / 86400)} days, ${dayjs().startOf('day').add(seconds % 86400, 'second').format('HH')} hours, ${dayjs().startOf('day').add(seconds % 86400, 'second').format('mm')} minutes, and ${dayjs().startOf('day').add(seconds % 86400, 'second').format('ss')} seconds left`
+                        ? `${Math.floor(seconds / 86400)}d, ${dayjs().startOf('day').add(seconds % 86400, 'second').format('HH')}h, ${dayjs().startOf('day').add(seconds % 86400, 'second').format('mm')}m, ${dayjs().startOf('day').add(seconds % 86400, 'second').format('ss')}s left`
                         : 'Time is up!'}
-                </p>
+                </h1>
             )}
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DemoContainer components={['DatePicker', 'TimeField']}>
                     <DatePicker
                         label="Select Exam Date"
                         value={examDateTime}
+                        /**
+                         * Handles changes to the exam date.
+                         * Updates the `examDateTime` state with the selected date.
+                         *
+                         * @param {dayjs.Dayjs|null} newDate - The new date selected by the user.
+                         */
                         onChange={(newDate) => {
                             if (newDate) {
                                 setExamDateTime(examDateTime.set('date', newDate.date()).set('month', newDate.month()).set('year', newDate.year()));
@@ -63,6 +86,12 @@ export default function CountdownTimer({ initialSeconds }) {
                     <TimeField
                         label="Select Exam Time"
                         value={examDateTime}
+                        /**
+                         * Handles changes to the exam time.
+                         * Updates the `examDateTime` state with the selected time.
+                         *
+                         * @param {dayjs.Dayjs|null} newTime - The new time selected by the user.
+                         */
                         onChange={(newTime) => {
                             if (newTime) {
                                 setExamDateTime(examDateTime.set('hour', newTime.hour()).set('minute', newTime.minute()).set('second', newTime.second()));
@@ -77,9 +106,15 @@ export default function CountdownTimer({ initialSeconds }) {
                     id="enter-exam-time"
                     size='large'
                     variant="contained"
+                    /**
+                     * Handles the "Enter Exam Date And Time" button click.
+                     * Sets the countdown timer and makes the time display visible.
+                     * Saves the selected exam date and time to localStorage.
+                     */
                     onClick={() => {
                         setSeconds(examDateTime.diff(dayjs(), 'second'));
                         setIsTimeLeftVisible(true); // Show the time-left-display
+                        localStorage.setItem('examDateTime', examDateTime.toISOString()); // Save to localStorage
                     }}
                 >
                     Enter Exam Date And Time
