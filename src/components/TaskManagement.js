@@ -187,6 +187,10 @@ export default function TaskManagement() {
                       <input
                       type="text"
                       defaultValue={task.text}
+                     /**
+                     * Handles changes to the task name.
+                     * Updates the task name in the state and localStorage.
+                     */
                       onChange={(e) => {
                         const newTaskName = e.target.value;
                         setTasks(tasks.map((t) =>
@@ -233,6 +237,11 @@ export default function TaskManagement() {
                     <TextField
                     label="Goal Time"
                     value={task.goalTime || "00:00:00"}
+                    /**
+                     * Handles changes to the goal time.
+                     * Updates the goal time in the state and localStorage.
+                     * The goal time is expected to be in HH:mm:ss format.
+                     */
                     onChange={(e) => {
                       const newGoalTime = e.target.value;
                         setTasks(tasks.map((t) =>

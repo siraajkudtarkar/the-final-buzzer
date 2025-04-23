@@ -23,6 +23,7 @@ export default function CountdownTimer({ initialSeconds }) {
     /**
      * Updates the countdown timer every second if there are seconds remaining.
      * Clears the interval when the component unmounts or when seconds reach 0.
+     * useEffect is used to manage the intervals for each task which is useful for handling multiple timers, especially.
      */
     useEffect(() => {
         if (seconds > 0) {
@@ -42,6 +43,7 @@ export default function CountdownTimer({ initialSeconds }) {
     /**
      * Updates the remaining time based on the difference between the current time and the exam date/time.
      * Runs every second to keep the countdown accurate.
+     * useEffect is used to manage the intervals for each task which is useful for handling multiple timers, especially.
      */
     useEffect(() => {
         const updateTimer = () => {
